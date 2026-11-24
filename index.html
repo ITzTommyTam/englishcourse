@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Từ vựng & Đồng nghĩa - Trái nghĩa (Unit 3, Review 1, Unit 4)</title>
+<style>
+  :root {
+    --bg: #f3f6f4;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --primary-soft: #ecfdf5;
+    --accent: #4f46e5;
+    --accent-soft: #eef2ff;
+    --danger: #ef4444;
+    --danger-soft: #fef2f2;
+    --warn: #f59e0b;
+    --warn-soft: #fffbeb;
+    --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    --radius: 16px;
+  }
+  [data-theme="dark"] {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #334155;
+    --primary: #34d399;
+    --primary-dark: #10b981;
+    --primary-soft: rgba(16, 185, 129, 0.15);
+    --accent: #818cf8;
+    --accent-soft: rgba(99, 102, 241, 0.15);
+    --danger: #f87171;
+    --danger-soft: rgba(239, 68, 68, 0.15);
+    --warn: #fbbf24;
+    --warn-soft: rgba(245, 158, 11, 0.15);
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    min-height: 100vh;
+    transition: background .25s, color .25s;
+  }
+  header {
+    background: linear-gradient(135deg, #059669, #0d9488 55%, #4f46e5);
+    color: #fff;
+    padding: 20px 16px 26px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .header-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
+  .brand p { font-size: 0.88rem; opacity: 0.92; margin-top: 2px; }
+  .theme-btn {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    backdrop-filter: blur(6px);
+  }
+  .theme-btn:hover { background: rgba(255,255,255,0.28); }
+
+  .container { max-width: 980px; margin: -14px auto 48px; padding: 0 14px; }
+
+  /* Tabs */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background: var(--card);
+    padding: 8px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .tab-btn {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    padding: 11px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--text); }
+  .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+  @media (max-width: 680px) {
+    .tabs { grid-template-columns: repeat(2, 1fr); }
+    .tab-btn { font-size: 0.84rem; padding: 10px 6px; }
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+
+  /* Controls */
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  select, input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.94rem;
+    outline: none;
+    transition: border .2s;
+  }
+  select:focus, input[type="text"]:focus { border-color: var(--primary); }
+
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 18px;
+    font-weight: 700;
+    font-size: 0.94rem;
+    cursor: pointer;
+    transition: all .18s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-danger-soft { background: var(--danger-soft); color: var(--danger); border: 1px solid rgba(239,68,68,0.25); }
+  .btn-danger-soft:hover { filter: brightness(0.96); }
+  .btn-sm { padding: 7px 12px; font-size: 0.83rem; border-radius: 8px; }
+
+  /* Stats bar */
+  .stats-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .pill-green { background: var(--primary-soft); color: var(--primary-dark); }
+  .pill-indigo { background: var(--accent-soft); color: var(--accent); }
+  .pill-red { background: var(--danger-soft); color: var(--danger); }
+  .pill-warn { background: var(--warn-soft); color: #b45309; }
+  [data-theme="dark"] .pill-green { color: var(--primary); }
+  [data-theme="dark"] .pill-warn { color: var(--warn); }
+
+  .progress-track {
+    width: 100%;
+    height: 9px;
+    background: var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    width: 0%;
+    transition: width .3s ease;
+  }
+
+  /* Quiz Question */
+  .q-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .q-prompt {
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .q-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 18px; }
+  .q-sentence {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    padding: 16px 18px;
+    background: var(--bg);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    margin: 12px 0 18px;
+  }
+  .hl-word {
+    text-decoration: underline;
+    text-decoration-thickness: 2.5px;
+    text-underline-offset: 4px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .speak-btn {
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 5px 11px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .speak-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 640px) { .options-grid { grid-template-columns: 1fr; } }
+  .opt-btn {
+    text-align: left;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.98rem;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: all .15s;
+  }
+  .opt-btn:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-soft); }
+  .opt-key {
+    min-width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .opt-btn.correct {
+    background: var(--primary-soft);
+    border-color: var(--primary);
+    color: var(--primary-dark);
+  }
+  [data-theme="dark"] .opt-btn.correct { color: var(--primary); }
+  .opt-btn.correct .opt-key { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .opt-btn.wrong {
+    background: var(--danger-soft);
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+  .opt-btn.wrong .opt-key { background: var(--danger); color: #fff; border-color: var(--danger); }
+  .opt-btn:disabled { cursor: default; }
+
+  .feedback-box {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    display: none;
+    font-size: 0.94rem;
+  }
+  .feedback-box.show { display: block; animation: fadeIn .2s; }
+  .feedback-box.ok { background: var(--primary-soft); border: 1px solid var(--primary); }
+  .feedback-box.no { background: var(--danger-soft); border: 1px solid var(--danger); }
+
+  .quiz-footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .shortcut-hint { font-size: 0.8rem; color: var(--muted); }
+
+  /* Result Summary */
+  .result-hero { text-align: center; padding: 14px 0 20px; }
+  .result-score { font-size: 2.8rem; font-weight: 900; color: var(--primary); line-height: 1.1; }
+  .wrong-list { margin-top: 16px; display: grid; gap: 10px; }
+  .wrong-item {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--bg);
+    border-left: 4px solid var(--danger);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Sub-tabs inside Syn/Ant */
+  .sub-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .sub-tab {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+  .sub-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { padding: 11px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); background: var(--bg); }
+  tr:hover td { background: var(--bg); }
+
+  /* Flashcards */
+  .fc-stage { perspective: 1200px; max-width: 560px; margin: 14px auto 20px; }
+  .fc-card {
+    position: relative;
+    width: 100%;
+    min-height: 290px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .55s cubic-bezier(.2,.85,.32,1.15);
+  }
+  .fc-card.flipped { transform: rotateY(180deg); }
+  .fc-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .fc-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, var(--primary-soft), var(--card) 60%);
+    border-color: var(--primary);
+  }
+  .fc-word { font-size: 1.85rem; font-weight: 900; margin: 10px 0 6px; }
+  .fc-ipa { color: var(--muted); font-size: 1rem; margin-bottom: 14px; }
+  .fc-vi { font-size: 1.35rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; }
+  [data-theme="dark"] .fc-vi { color: var(--primary); }
+  .fc-note { font-size: 0.9rem; color: var(--muted); max-width: 440px; }
+  .fc-controls { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+  .hidden { display: none !important; }
+  .empty-state { text-align: center; padding: 36px 16px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <h1>🌱 Ôn Tập Từ Vựng Tiếng Anh 12</h1>
+      <p>Unit 3: Green Living • Review 1 • Unit 4: Urbanisation (199 từ + 48 câu Đồng nghĩa / Trái nghĩa)</p>
+    </div>
+    <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 Giao diện tối</button>
+  </div>
+</header>
+
+<div class="container">
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="switchTab('vocab', this)">📝 Trắc nghiệm Từ vựng</button>
+    <button class="tab-btn" onclick="switchTab('synant', this)">🔄 Đồng nghĩa & Trái nghĩa</button>
+    <button class="tab-btn" onclick="switchTab('flashcard', this)">🃏 Flashcards</button>
+    <button class="tab-btn" onclick="switchTab('dict', this)">📚 Sổ tay (199 từ)</button>
+  </nav>
+
+  <!-- ==================== TAB 1: VOCAB QUIZ ==================== -->
+  <section id="tab-vocab" class="panel active">
+    <div class="card" id="vq-setup">
+      <div class="controls-grid">
+        <div class="field">
+          <label>Chọn phạm vi bài học</label>
+          <select id="vq-unit">
+            <option value="all">Tất cả (199 từ)</option>
+            <option value="u3_1">Unit 3 - I. Getting Started (56 từ)</option>
+            <option value="u3_2">Unit 3 - II. Language (34 từ)</option>
+            <option value="u3_3">Unit 3 - III. Reading (25 từ)</option>
+            <option value="u3_45">Unit 3 - IV & V. Speaking & Listening (14 từ)</option>
+            <option value="u3_67">Unit 3 - VI & VII. Writing & CLIL (25 từ)</option>
+            <option value="rev1">Review 1 (20 từ)</option>
+            <option value="u4">Unit 4: Urbanisation (25 từ)</option>
+            <option value="wrong_only">⚠️ Chỉ các từ đã làm sai (<span id="wrongCountOpt">0</span>)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Kiểu câu hỏi</label>
+          <select id="vq-dir">
+            <option value="mix">Trộn Anh→Việt & Việt→Anh</option>
+            <option value="en2vi">Tiếng Anh → Nghĩa Tiếng Việt</option>
+            <option value="vi2en">Nghĩa Tiếng Việt → Từ Tiếng Anh</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Số lượng câu</label>
+          <select id="vq-count">
+            <option value="15">15 câu</option>
+            <option value="30" selected>30 câu</option>
+            <option value="50">50 câu</option>
+            <option value="999">Tất cả câu trong phần đã chọn</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="startVocabQuiz()">🚀 Bắt đầu làm bài</button>
+        <button class="btn btn-danger-soft" id="vq-wrong-btn" onclick="startWrongVocabQuiz()">⚠️ Ôn câu đã sai (<span id="wrongBadge">0</span>)</button>
+        <button class="btn btn-outline btn-sm" onclick="clearWrongBank()">Xóa danh sách sai</button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="vq-play">
+      <div class="stats-bar">
+        <div>Câu <span id="vq-idx">1</span> / <span id="vq-total">30</span></div>
+        <div class="btn-row">
+          <span class="pill pill-green">✓ Đúng: <span id="vq-score">0</span></span>
+          <span class="pill pill-warn">🔥 Chuỗi: <span id="vq-streak">0</span></span>
+          <button class="btn btn-outline btn-sm" onclick="exitVocabQuiz()">Thoát</button>
+        </div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="vq-bar"></div></div>
+
+      <div class="q-meta">
+        <span class="pill pill-indigo" id="vq-unit-tag">Unit 3</span>
+        <span class="pill pill-green" id="vq-dir-tag">Anh → Việt</span>
+      </div>
+      <div class="q-prompt" id="vq-prompt"></div>
+      <div class="q-sub" id="vq-sub"></div>
+
+      <div class="options-grid" id="vq-options"></div>
+
+      <div class="feedback-box" id="vq-feedback"></div>
+
+      <div class="quiz-footer">
+        <span class="shortcut-hint">Mẹo: Nhấn phím <b>1–4</b> để chọn, <b>Enter</b> để sang câu tiếp</span>
+        <button class="btn btn-primary hidden" id="vq-next" onclick="nextVocabQ()">Câu tiếp theo →</button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="vq-result">
+      <div class="result-hero">
+        <div class="result-score" id="vq-final-score">0/0</div>
+        <p id="vq-final-msg" style="margin-top:8px;font-weight:700;"></p>
+        <div class="btn-row" style="justify-content:center;margin-top:16px;">
+          <button class="btn btn-primary" onclick="startVocabQuiz()">🔄 Làm lượt mới</button>
+          <button class="btn btn-danger-soft hidden" id="vq-retry-wrong" onclick="retrySessionWrongVocab()">⚠️ Ôn ngay các câu vừa sai</button>
+          <button class="btn btn-outline" onclick="exitVocabQuiz()">Chọn phần khác</button>
+        </div>
+      </div>
+      <div id="vq-wrong-review"></div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 2: SYNONYMS & ANTONYMS ==================== -->
+  <section id="tab-synant" class="panel">
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="switchSynSub('quiz', this)">🎯 Luyện Trắc nghiệm (48 câu)</button>
+      <button class="sub-tab" onclick="switchSynSub('table', this)">📋 Bảng tổng hợp Đồng nghĩa / Trái nghĩa</button>
+    </div>
+
+    <div id="syn-quiz-wrap">
+      <div class="card" id="sq-setup">
+        <div class="controls-grid">
+          <div class="field">
+            <label>Loại câu hỏi</label>
+            <select id="sq-type">
+              <option value="all">Cả Đồng nghĩa (CLOSEST) & Trái nghĩa (OPPOSITE)</option>
+              <option value="syn">Chỉ Đồng nghĩa (CLOSEST in meaning)</option>
+              <option value="ant">Chỉ Trái nghĩa (OPPOSITE in meaning)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Nguồn cặp từ</label>
+            <select id="sq-src">
+              <option value="all">Tất cả (Trong tài liệu + Mở rộng thi THPT)</option>
+              <option value="book">Chỉ các cặp trực tiếp trong tài liệu (25 câu)</option>
+              <option value="exam">Chỉ các cặp mở rộng chuẩn thi THPT (23 câu)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Số lượng câu</label>
+            <select id="sq-count">
+              <option value="10">10 câu</option>
+              <option value="20" selected>20 câu</option>
+              <option value="999">Tất cả câu đã lọc</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-accent" onclick="startSynQuiz()">🚀 Bắt đầu luyện Đồng nghĩa / Trái nghĩa</button>
+      </div>
+
+      <div class="card hidden" id="sq-play">
+        <div class="stats-bar">
+          <div>Câu <span id="sq-idx">1</span> / <span id="sq-total">20</span></div>
+          <div class="btn-row">
+            <span class="pill pill-green">✓ Đúng: <span id="sq-score">0</span></span>
+            <button class="btn btn-outline btn-sm" onclick="exitSynQuiz()">Thoát</button>
+          </div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="sq-bar"></div></div>
+
+        <div class="q-meta">
+          <span class="pill" id="sq-type-badge">CLOSEST</span>
+          <span class="pill pill-indigo" id="sq-src-badge">Trong tài liệu</span>
+        </div>
+        <p id="sq-instruction" style="font-weight:700;font-size:0.95rem;"></p>
+        <div class="q-sentence" id="sq-sentence"></div>
+        <div class="options-grid" id="sq-options"></div>
+        <div class="feedback-box" id="sq-feedback"></div>
+        <div class="quiz-footer">
+          <span class="shortcut-hint">Phím <b>1–4</b> để chọn, <b>Enter</b> để câu tiếp</span>
+          <button class="btn btn-accent hidden" id="sq-next" onclick="nextSynQ()">Câu tiếp theo →</button>
+        </div>
+      </div>
+
+      <div class="card hidden" id="sq-result">
+        <div class="result-hero">
+          <div class="result-score" id="sq-final-score">0/0</div>
+          <p id="sq-final-msg" style="margin-top:8px;font-weight:700;"></p>
+          <div class="btn-row" style="justify-content:center;margin-top:16px;">
+            <button class="btn btn-accent" onclick="startSynQuiz()">🔄 Làm lại</button>
+            <button class="btn btn-danger-soft hidden" id="sq-retry-wrong" onclick="retrySynWrong()">⚠️ Làm lại câu vừa sai</button>
+            <button class="btn btn-outline" onclick="exitSynQuiz()">Đổi bộ lọc</button>
+          </div>
+        </div>
+        <div id="sq-wrong-review"></div>
+      </div>
+    </div>
+
+    <div id="syn-table-wrap" class="hidden">
+      <div class="card">
+        <div class="controls-grid">
+          <div class="field">
+            <label>Lọc bảng</label>
+            <select id="st-filter" onchange="renderSynTable()">
+              <option value="all">Tất cả (48 cặp)</option>
+              <option value="syn">Chỉ Đồng nghĩa (=)</option>
+              <option value="ant">Chỉ Trái nghĩa (≠)</option>
+              <option value="book">Chỉ có sẵn trong tài liệu</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Tìm kiếm</label>
+            <input type="text" id="st-search" placeholder="Nhập từ tiếng Anh hoặc nghĩa..." oninput="renderSynTable()">
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Loại</th>
+                <th>Từ gốc</th>
+                <th>Đồng nghĩa / Trái nghĩa</th>
+                <th>Giải nghĩa</th>
+                <th>Nguồn</th>
+              </tr>
+            </thead>
+            <tbody id="syn-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 3: FLASHCARDS ==================== -->
+  <section id="tab-flashcard" class="panel">
+    <div class="card">
+      <div class="controls-grid">
+        <div class="field">
+          <label>Chọn bài học</label>
+          <select id="fc-unit" onchange="initFlashcards()">
+            <option value="all">Tất cả (199 từ)</option>
+            <option value="u3_1">Unit 3 - I. Getting Started</option>
+            <option value="u3_2">Unit 3 - II. Language</option>
+            <option value="u3_3">Unit 3 - III. Reading</option>
+            <option value="u3_45">Unit 3 - IV & V. Speaking & Listening</option>
+            <option value="u3_67">Unit 3 - VI & VII. Writing & CLIL</option>
+            <option value="rev1">Review 1</option>
+            <option value="u4">Unit 4: Urbanisation</option>
+          </select>
+        </div>
+        <div class="field" style="display:flex;align-items:flex-end;gap:8px;">
+          <button class="btn btn-outline" onclick="shuffleFlashcards()">🔀 Trộn thẻ</button>
+          <button class="btn btn-outline" onclick="initFlashcards()">↺ Bắt đầu lại</button>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div>Thẻ <span id="fc-idx">1</span> / <span id="fc-total">0</span></div>
+        <span class="pill pill-green">✓ Đã thuộc: <span id="fc-known">0</span></span>
+      </div>
+
+      <div class="fc-stage">
+        <div class="fc-card" id="fc-card" onclick="flipCard()">
+          <div class="fc-face fc-front">
+            <span class="pill pill-indigo" id="fc-unit-badge">Unit 3</span>
+            <div class="fc-word" id="fc-word">word</div>
+            <div class="fc-ipa" id="fc-ipa">/ipa/</div>
+            <button class="speak-btn" onclick="event.stopPropagation(); speakCurrentFC()">🔊 Nghe phát âm</button>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:18px;">(Nhấn vào thẻ để xem nghĩa tiếng Việt)</p>
+          </div>
+          <div class="fc-face fc-back">
+            <span class="pill pill-green" id="fc-pos-badge">(v)</span>
+            <div class="fc-vi" id="fc-vi">nghĩa</div>
+            <div class="fc-note" id="fc-note"></div>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:18px;">(Nhấn để lật lại)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-controls">
+        <button class="btn btn-outline" onclick="prevFC()">← Thẻ trước</button>
+        <button class="btn btn-danger-soft" onclick="markFC(false)">🔁 Chưa thuộc (học lại)</button>
+        <button class="btn btn-primary" onclick="markFC(true)">✓ Đã thuộc</button>
+        <button class="btn btn-outline" onclick="nextFC()">Thẻ sau →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 4: DICTIONARY ==================== -->
+  <section id="tab-dict" class="panel">
+    <div class="card">
+      <div class="controls-grid">
+        <div class="field">
+          <label>Lọc theo phần</label>
+          <select id="dict-unit" onchange="renderDict()">
+            <option value="all">Tất cả (199 từ)</option>
+            <option value="u3_1">Unit 3 - I. Getting Started</option>
+            <option value="u3_2">Unit 3 - II. Language</option>
+            <option value="u3_3">Unit 3 - III. Reading</option>
+            <option value="u3_45">Unit 3 - IV & V. Speaking & Listening</option>
+            <option value="u3_67">Unit 3 - VI & VII. Writing & CLIL</option>
+            <option value="rev1">Review 1</option>
+            <option value="u4">Unit 4: Urbanisation</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tìm kiếm từ vựng</label>
+          <input type="text" id="dict-search" placeholder="Gõ tiếng Anh hoặc tiếng Việt..." oninput="renderDict()">
+        </div>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:10px;">Hiển thị <b id="dict-count">199</b> từ vựng</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Từ vựng</th>
+              <th>Loại</th>
+              <th>Phiên âm</th>
+              <th>Nghĩa tiếng Việt & Ghi chú</th>
+              <th>Phần</th>
+            </tr>
+          </thead>
+          <tbody id="dict-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const UNIT_NAMES = {
+  u3_1: "Unit 3 - Getting Started",
+  u3_2: "Unit 3 - Language",
+  u3_3: "Unit 3 - Reading",
+  u3_45: "Unit 3 - Speaking & Listening",
+  u3_67: "Unit 3 - Writing & CLIL",
+  rev1: "Review 1",
+  u4: "Unit 4 - Urbanisation"
+};
+
+/* ==================== TOÀN BỘ 199 TỪ VỰNG TỪ 5 TRANG ==================== */
+const VOCAB = [
+  // UNIT 3 - I/ GETTING STARTED (Trang 10 - 11)
+  { id:1, u:"u3_1", w:"compete", p:"(v)", ipa:"/kəmˈpiːt/", vi:"cạnh tranh, thi đấu" },
+  { id:2, u:"u3_1", w:"competitive", p:"(adj)", ipa:"/kəmˈpetətɪv/", vi:"có tính cạnh tranh" },
+  { id:3, u:"u3_1", w:"competition", p:"(n)", ipa:"/ˌkɒmpəˈtɪʃn/", vi:"cuộc thi, sự cạnh tranh" },
+  { id:4, u:"u3_1", w:"competitor", p:"(n)", ipa:"/kəmˈpetɪtə/", vi:"người cạnh tranh, đối thủ" },
+  { id:5, u:"u3_1", w:"ecotour", p:"(n)", ipa:"/ˈiːkəʊtʊə/", vi:"du lịch sinh thái" },
+  { id:6, u:"u3_1", w:"judge", p:"(v/n)", ipa:"/dʒʌdʒ/", vi:"đánh giá, chấm điểm (v); giám khảo, thẩm phán (n)" },
+  { id:7, u:"u3_1", w:"judgement / judgment", p:"(n)", ipa:"/ˈdʒʌdʒmənt/", vi:"sự đánh giá, nhận định" },
+  { id:8, u:"u3_1", w:"judgemental / judgmental", p:"(adj)", ipa:"/dʒʌdʒˈmentl/", vi:"hay phán xét người khác" },
+  { id:9, u:"u3_1", w:"raise", p:"(v)", ipa:"/reɪz/", vi:"nâng lên, làm tăng", sg:"increase" },
+  { id:10, u:"u3_1", w:"awareness", p:"(n)", ipa:"/əˈweənəs/", vi:"nhận thức" },
+  { id:11, u:"u3_1", w:"raise someone's awareness", p:"(phrase)", ipa:"", vi:"nâng cao nhận thức" },
+  { id:12, u:"u3_1", w:"carbon footprint", p:"(n)", ipa:"/ˈkɑːbən ˈfʊtprɪnt/", vi:"dấu chân cacbon (tổng lượng khí nhà kính do con người tạo ra)" },
+  { id:13, u:"u3_1", w:"resource", p:"(n)", ipa:"/rɪˈsɔːs/", vi:"tài nguyên, nguồn lực" },
+  { id:14, u:"u3_1", w:"affect", p:"(v)", ipa:"/əˈfekt/", vi:"ảnh hưởng" },
+  { id:15, u:"u3_1", w:"effect", p:"(n)", ipa:"/ɪˈfekt/", vi:"sự ảnh hưởng, sự tác động" },
+  { id:16, u:"u3_1", w:"effective (= efficacious)", p:"(adj)", ipa:"/ɪˈfektɪv/", vi:"hiệu quả", note:"= efficacious | ≠ ineffective" },
+  { id:17, u:"u3_1", w:"ineffective", p:"(adj)", ipa:"/ˌɪnɪˈfektɪv/", vi:"không hiệu quả", note:"≠ effective" },
+  { id:18, u:"u3_1", w:"effectiveness", p:"(n)", ipa:"/ɪˈfektɪvnəs/", vi:"tính hiệu quả" },
+  { id:19, u:"u3_1", w:"clean-up", p:"(n)", ipa:"/ˈkliːn ʌp/", vi:"việc dọn dẹp, làm sạch", sg:"cleanup" },
+  { id:20, u:"u3_1", w:"clean up", p:"(phr v)", ipa:"", vi:"dọn dẹp, làm sạch", sg:"cleanup" },
+  { id:21, u:"u3_1", w:"frequent", p:"(adj)", ipa:"/ˈfriːkwənt/", vi:"thường xuyên (tính từ)", sg:"frequent" },
+  { id:22, u:"u3_1", w:"frequently", p:"(adv)", ipa:"/ˈfriːkwəntli/", vi:"một cách thường xuyên (trạng từ)", sg:"frequent" },
+  { id:23, u:"u3_1", w:"behave", p:"(v)", ipa:"/bɪˈheɪv/", vi:"cư xử" },
+  { id:24, u:"u3_1", w:"behaviour", p:"(n)", ipa:"/bɪˈheɪvjə/", vi:"hành vi, cách cư xử" },
+  { id:25, u:"u3_1", w:"eco-friendly", p:"(adj)", ipa:"/ˌiːkəʊ ˈfrendli/", vi:"thân thiện với môi trường" },
+  { id:26, u:"u3_1", w:"notice", p:"(v/n)", ipa:"/ˈnəʊtɪs/", vi:"nhận thấy (v); thông báo, sự chú ý (n)" },
+  { id:27, u:"u3_1", w:"noticeable", p:"(adj)", ipa:"/ˈnəʊtɪsəbl/", vi:"dễ nhận thấy", note:"≠ unnoticed" },
+  { id:28, u:"u3_1", w:"noticeably", p:"(adv)", ipa:"/ˈnəʊtɪsəbli/", vi:"một cách rõ rệt" },
+  { id:29, u:"u3_1", w:"unnoticed", p:"(adj)", ipa:"/ˌʌnˈnəʊtɪst/", vi:"không được chú ý", note:"≠ noticeable" },
+  { id:30, u:"u3_1", w:"throw away", p:"(phr v)", ipa:"", vi:"vứt bỏ, bỏ đi", sg:"discard" },
+  { id:31, u:"u3_1", w:"decompose", p:"(v)", ipa:"/ˌdiːkəmˈpəʊz/", vi:"phân hủy" },
+  { id:32, u:"u3_1", w:"decomposition", p:"(n)", ipa:"/ˌdiːˌkɒmpəˈzɪʃn/", vi:"sự phân hủy" },
+  { id:33, u:"u3_1", w:"certain (= sure)", p:"(adj)", ipa:"/ˈsɜːtn/", vi:"chắc chắn", note:"= sure | ≠ uncertain" },
+  { id:34, u:"u3_1", w:"uncertain", p:"(adj)", ipa:"/ʌnˈsɜːtn/", vi:"không chắc chắn", note:"≠ certain" },
+  { id:35, u:"u3_1", w:"certainty", p:"(n)", ipa:"/ˈsɜːtnti/", vi:"sự chắc chắn", note:"≠ uncertainty" },
+  { id:36, u:"u3_1", w:"uncertainty", p:"(n)", ipa:"/ʌnˈsɜːtnti/", vi:"sự không chắc chắn", note:"≠ certainty" },
+  { id:37, u:"u3_1", w:"jug", p:"(n)", ipa:"/dʒʌɡ/", vi:"bình có quai và miệng để rót" },
+  { id:38, u:"u3_1", w:"refill", p:"(v/n)", ipa:"/ˌriːˈfɪl/", vi:"đổ đầy lại, nạp lại (v); phần được đổ/nạp thêm (n)" },
+  { id:39, u:"u3_1", w:"refillable", p:"(adj)", ipa:"/ˌriːˈfɪləbl/", vi:"có thể đổ đầy lại, có thể nạp thêm" },
+  { id:40, u:"u3_1", w:"reuse", p:"(v/n)", ipa:"/ˌriːˈjuːz/", vi:"tái sử dụng (v); việc tái sử dụng (n)" },
+  { id:41, u:"u3_1", w:"reusable", p:"(adj)", ipa:"/ˌriːˈjuːzəbl/", vi:"có thể tái sử dụng", note:"≠ single-use" },
+  { id:42, u:"u3_1", w:"reduce", p:"(v)", ipa:"/rɪˈdjuːs/", vi:"giảm", sg:"decrease" },
+  { id:43, u:"u3_1", w:"reduction", p:"(n)", ipa:"/rɪˈdʌkʃn/", vi:"sự cắt giảm, sự giảm bớt" },
+  { id:44, u:"u3_1", w:"air-conditioner", p:"(n)", ipa:"/ˈeə kəndɪʃənə/", vi:"máy điều hoà không khí" },
+  { id:45, u:"u3_1", w:"air-conditioning", p:"(n)", ipa:"/ˈeə kəndɪʃənɪŋ/", vi:"hệ thống điều hoà không khí" },
+  { id:46, u:"u3_1", w:"air-conditioned", p:"(adj)", ipa:"/ˈeə kəndɪʃnd/", vi:"được trang bị điều hòa" },
+  { id:47, u:"u3_1", w:"rush out", p:"(phr v)", ipa:"/rʌʃ aʊt/", vi:"vội vàng chạy ra ngoài" },
+  { id:48, u:"u3_1", w:"waste", p:"(n)", ipa:"/weɪst/", vi:"rác thải, sự lãng phí" },
+  { id:49, u:"u3_1", w:"waste + time/money + V-ing", p:"(structure)", ipa:"", vi:"lãng phí thời gian/tiền bạc vào việc gì" },
+  { id:50, u:"u3_1", w:"single-use", p:"(adj)", ipa:"/ˌsɪŋɡl ˈjuːs/", vi:"dùng một lần", note:"≠ reusable" },
+  { id:51, u:"u3_1", w:"remind", p:"(v)", ipa:"/rɪˈmaɪnd/", vi:"nhắc nhở" },
+  { id:52, u:"u3_1", w:"reminder", p:"(n)", ipa:"/rɪˈmaɪndə/", vi:"lời nhắc" },
+  { id:53, u:"u3_1", w:"gradual", p:"(adj)", ipa:"/ˈɡrædʒuəl/", vi:"dần dần, từ từ (tính từ)", sg:"gradual" },
+  { id:54, u:"u3_1", w:"gradually", p:"(adv)", ipa:"/ˈɡrædʒuəli/", vi:"một cách từ từ, dần dần (trạng từ)", sg:"gradual" },
+  { id:55, u:"u3_1", w:"measure", p:"(v/n)", ipa:"/ˈmeʒə/", vi:"đo lường (v); biện pháp (n)" },
+  { id:56, u:"u3_1", w:"measurement", p:"(n)", ipa:"/ˈmeʒəmənt/", vi:"sự đo lường, số liệu đo" },
+
+  // UNIT 3 - II/ LANGUAGE (Trang 11 - 12)
+  { id:57, u:"u3_2", w:"landfill", p:"(n)", ipa:"/ˈlændfɪl/", vi:"bãi chôn lấp rác thải" },
+  { id:58, u:"u3_2", w:"bury", p:"(v)", ipa:"/ˈberi/", vi:"chôn, vùi lấp" },
+  { id:59, u:"u3_2", w:"burial", p:"(n)", ipa:"/ˈberiəl/", vi:"sự chôn cất" },
+  { id:60, u:"u3_2", w:"surface", p:"(n/v)", ipa:"/ˈsɜːfɪs/", vi:"bề mặt (n); nổi lên bề mặt (v)" },
+  { id:61, u:"u3_2", w:"wrap", p:"(v/n)", ipa:"/ræp/", vi:"bọc, gói (v); màng/lớp bọc (n)" },
+  { id:62, u:"u3_2", w:"bowl", p:"(n)", ipa:"/bəʊl/", vi:"cái tô" },
+  { id:63, u:"u3_2", w:"package", p:"(n)", ipa:"/ˈpækɪdʒ/", vi:"gói hàng" },
+  { id:64, u:"u3_2", w:"packaging", p:"(n)", ipa:"/ˈpækɪdʒɪŋ/", vi:"bao bì" },
+  { id:65, u:"u3_2", w:"contain", p:"(v)", ipa:"/kənˈteɪn/", vi:"chứa, đựng" },
+  { id:66, u:"u3_2", w:"container", p:"(n)", ipa:"/kənˈteɪnə/", vi:"thùng chứa" },
+  { id:67, u:"u3_2", w:"leak", p:"(v/n)", ipa:"/liːk/", vi:"rò rỉ, bị rò rỉ (v); sự rò rỉ (n)" },
+  { id:68, u:"u3_2", w:"tap", p:"(n)", ipa:"/tæp/", vi:"vòi nước" },
+  { id:69, u:"u3_2", w:"necessary", p:"(adj)", ipa:"/ˈnesəsəri/", vi:"cần thiết", note:"≠ unnecessary" },
+  { id:70, u:"u3_2", w:"unnecessary", p:"(adj)", ipa:"/ʌnˈnesəsəri/", vi:"không cần thiết", note:"≠ necessary" },
+  { id:71, u:"u3_2", w:"necessity", p:"(n)", ipa:"/nəˈsesəti/", vi:"sự cần thiết" },
+  { id:72, u:"u3_2", w:"recycle", p:"(v)", ipa:"/ˌriːˈsaɪkl/", vi:"tái chế" },
+  { id:73, u:"u3_2", w:"recyclable", p:"(adj)", ipa:"/ˌriːˈsaɪkləbl/", vi:"có thể tái chế" },
+  { id:74, u:"u3_2", w:"recycling", p:"(n)", ipa:"/ˌriːˈsaɪklɪŋ/", vi:"sự tái chế" },
+  { id:75, u:"u3_2", w:"release", p:"(v)", ipa:"/rɪˈliːs/", vi:"thả, phóng thích" },
+  { id:76, u:"u3_2", w:"harm", p:"(v/n)", ipa:"/hɑːm/", vi:"gây hại, làm hại (v); tác hại (n)" },
+  { id:77, u:"u3_2", w:"harmful to", p:"(adj)", ipa:"/ˈhɑːmfl/", vi:"có hại (cho)", note:"≠ harmless to" },
+  { id:78, u:"u3_2", w:"harmless to", p:"(adj)", ipa:"/ˈhɑːmləs/", vi:"vô hại (với)", note:"≠ harmful to" },
+  { id:79, u:"u3_2", w:"depend on", p:"(v)", ipa:"/dɪˈpend/", vi:"phụ thuộc vào" },
+  { id:80, u:"u3_2", w:"dependence", p:"(n)", ipa:"/dɪˈpendəns/", vi:"sự phụ thuộc", note:"≠ independence" },
+  { id:81, u:"u3_2", w:"independence", p:"(n)", ipa:"/ˌɪndɪˈpendəns/", vi:"sự độc lập, nền độc lập", note:"≠ dependence" },
+  { id:82, u:"u3_2", w:"dependent on", p:"(adj)", ipa:"/dɪˈpendənt/", vi:"dựa vào, phụ thuộc vào", note:"≠ independent of" },
+  { id:83, u:"u3_2", w:"independent of", p:"(adj)", ipa:"/ˌɪndɪˈpendənt/", vi:"độc lập (với)", note:"≠ dependent on" },
+  { id:84, u:"u3_2", w:"pollute", p:"(v)", ipa:"/pəˈluːt/", vi:"gây ô nhiễm", note:"= contaminate", sg:"pollute_v" },
+  { id:85, u:"u3_2", w:"polluted", p:"(adj)", ipa:"/pəˈluːtɪd/", vi:"bị ô nhiễm", note:"= contaminated", sg:"pollute_adj" },
+  { id:86, u:"u3_2", w:"pollution", p:"(n)", ipa:"/pəˈluːʃn/", vi:"sự ô nhiễm", note:"= contamination", sg:"pollute_n" },
+  { id:87, u:"u3_2", w:"pollutant", p:"(n)", ipa:"/pəˈluːtənt/", vi:"chất gây ô nhiễm" },
+  { id:88, u:"u3_2", w:"private", p:"(adj)", ipa:"/ˈpraɪvət/", vi:"riêng tư, cá nhân, tư nhân" },
+  { id:89, u:"u3_2", w:"privacy", p:"(n)", ipa:"/ˈprɪvəsi/", vi:"sự riêng tư, quyền riêng tư" },
+  { id:90, u:"u3_2", w:"vehicle", p:"(n)", ipa:"/ˈviːəkl/", vi:"phương tiện giao thông, xe cộ" },
+
+  // UNIT 3 - III/ READING (Trang 12)
+  { id:91, u:"u3_3", w:"exist", p:"(v)", ipa:"/ɪɡˈzɪst/", vi:"tồn tại" },
+  { id:92, u:"u3_3", w:"existence", p:"(n)", ipa:"/ɪɡˈzɪstəns/", vi:"sự tồn tại" },
+  { id:93, u:"u3_3", w:"existent", p:"(adj)", ipa:"/ɪɡˈzɪstənt/", vi:"có tồn tại, hiện hữu", note:"Ex: Dinosaurs are no longer existent." },
+  { id:94, u:"u3_3", w:"existing", p:"(adj)", ipa:"/ɪɡˈzɪstɪŋ/", vi:"đang hiện hành, hiện có", note:"Ex: New laws will soon replace existing legislation." },
+  { id:95, u:"u3_3", w:"convenient", p:"(adj)", ipa:"/kənˈviːniənt/", vi:"tiện lợi" },
+  { id:96, u:"u3_3", w:"convenience", p:"(n)", ipa:"/kənˈviːniəns/", vi:"sự tiện lợi" },
+  { id:97, u:"u3_3", w:"cardboard", p:"(n)", ipa:"/ˈkɑːdbɔːd/", vi:"bìa cứng, giấy các-tông" },
+  { id:98, u:"u3_3", w:"leftover", p:"(n)", ipa:"/ˈleftəʊvə/", vi:"thức ăn thừa" },
+  { id:99, u:"u3_3", w:"contaminate", p:"(v)", ipa:"/kənˈtæmɪneɪt/", vi:"làm ô nhiễm", note:"= pollute", sg:"pollute_v" },
+  { id:100, u:"u3_3", w:"contaminated", p:"(adj)", ipa:"/kənˈtæmɪneɪtɪd/", vi:"bị ô nhiễm", note:"= polluted", sg:"pollute_adj" },
+  { id:101, u:"u3_3", w:"contamination", p:"(n)", ipa:"/kənˌtæmɪˈneɪʃn/", vi:"sự ô nhiễm", note:"= pollution", sg:"pollute_n" },
+  { id:102, u:"u3_3", w:"rinse", p:"(v/n)", ipa:"/rɪns/", vi:"rửa sạch (v); sự rửa (n)" },
+  { id:103, u:"u3_3", w:"rinse out", p:"(phr v)", ipa:"", vi:"tráng, rửa sạch bên trong" },
+  { id:104, u:"u3_3", w:"get rid of", p:"(phr v)", ipa:"", vi:"loại bỏ", sg:"discard" },
+  { id:105, u:"u3_3", w:"vend", p:"(v)", ipa:"/vend/", vi:"bán hàng" },
+  { id:106, u:"u3_3", w:"vending machine", p:"(n)", ipa:"/ˈvendɪŋ məʃiːn/", vi:"máy bán hàng tự động" },
+  { id:107, u:"u3_3", w:"drinking fountain", p:"(n)", ipa:"/ˈdrɪŋkɪŋ faʊntən/", vi:"vòi nước uống công cộng" },
+  { id:108, u:"u3_3", w:"portion", p:"(v/n)", ipa:"/ˈpɔːʃn/", vi:"chia thành từng phần (v); phần, phần chia (n)" },
+  { id:109, u:"u3_3", w:"made of", p:"(phrase)", ipa:"", vi:"được làm từ (vật liệu vẫn giữ nguyên bản chất)", note:"Ex: The chair is made of wood." },
+  { id:110, u:"u3_3", w:"made from", p:"(phrase)", ipa:"", vi:"được làm từ (vật liệu đã biến đổi)", note:"Ex: Paper is made from trees." },
+  { id:111, u:"u3_3", w:"cap", p:"(n)", ipa:"/kæp/", vi:"nắp chai, nắp đậy" },
+  { id:112, u:"u3_3", w:"instead of", p:"(prep)", ipa:"/ɪnˈsted əv/", vi:"thay vì" },
+  { id:113, u:"u3_3", w:"instead", p:"(adv)", ipa:"/ɪnˈsted/", vi:"thay vào đó" },
+  { id:114, u:"u3_3", w:"properly", p:"(adv)", ipa:"/ˈprɒpəli/", vi:"đúng cách, phù hợp" },
+  { id:115, u:"u3_3", w:"facility", p:"(n)", ipa:"/fəˈsɪləti/", vi:"cơ sở vật chất" },
+
+  // UNIT 3 - IV/ SPEAKING & V/ LISTENING (Trang 12 - 13)
+  { id:116, u:"u3_45", w:"sort", p:"(v/n)", ipa:"/sɔːt/", vi:"phân loại (v); loại, kiểu (n)" },
+  { id:117, u:"u3_45", w:"sort sth into sth", p:"(v)", ipa:"", vi:"phân loại cái gì thành nhóm" },
+  { id:118, u:"u3_45", w:"compost", p:"(v/n)", ipa:"/ˈkɒmpɒst/", vi:"ủ thành phân hữu cơ (v); phân hữu cơ (n)" },
+  { id:119, u:"u3_45", w:"compostable", p:"(adj)", ipa:"/kəmˈpɒstəbl/", vi:"có thể ủ làm phân hữu cơ" },
+  { id:120, u:"u3_45", w:"print out", p:"(phr v)", ipa:"", vi:"in ra" },
+  { id:121, u:"u3_45", w:"leaflet", p:"(v/n)", ipa:"/ˈliːflət/", vi:"phát tờ rơi (v); tờ rơi (n)" },
+  { id:122, u:"u3_45", w:"pile", p:"(v/n)", ipa:"/paɪl/", vi:"chất đống, xếp chồng (v); đống (n)" },
+  { id:123, u:"u3_45", w:"mix", p:"(v)", ipa:"/mɪks/", vi:"trộn, pha" },
+  { id:124, u:"u3_45", w:"mixture", p:"(n)", ipa:"/ˈmɪkstʃə/", vi:"hỗn hợp" },
+  { id:125, u:"u3_45", w:"layer", p:"(v/n)", ipa:"/ˈleɪə/", vi:"xếp thành từng lớp (v); lớp, tầng (n)" },
+  { id:126, u:"u3_45", w:"additional", p:"(adj)", ipa:"/əˈdɪʃənl/", vi:"bổ sung, thêm" },
+  { id:127, u:"u3_45", w:"additionally", p:"(adv)", ipa:"/əˈdɪʃənəli/", vi:"ngoài ra" },
+  { id:128, u:"u3_45", w:"fertilize", p:"(v)", ipa:"/ˈfɜːtəlaɪz/", vi:"bón phân" },
+  { id:129, u:"u3_45", w:"fertilizer", p:"(n)", ipa:"/ˈfɜːtəlaɪzə/", vi:"phân bón" },
+
+  // UNIT 3 - VI/ WRITING & VII/ COMMUNICATION & CULTURE / CLIL (Trang 13)
+  { id:130, u:"u3_67", w:"art and craft", p:"(n)", ipa:"", vi:"thủ công mỹ nghệ" },
+  { id:131, u:"u3_67", w:"pot", p:"(v/n)", ipa:"/pɒt/", vi:"trồng vào chậu, cho vào chậu (v); chậu, bình (n)" },
+  { id:132, u:"u3_67", w:"sensor", p:"(n)", ipa:"/ˈsensə/", vi:"cảm biến" },
+  { id:133, u:"u3_67", w:"pick sth/so up", p:"(phr v)", ipa:"", vi:"nhặt, thu gom, đón ai" },
+  { id:134, u:"u3_67", w:"session", p:"(n)", ipa:"/ˈseʃn/", vi:"buổi (học, thảo luận, làm việc), phiên" },
+  { id:135, u:"u3_67", w:"make use of", p:"(phr v)", ipa:"", vi:"tận dụng" },
+  { id:136, u:"u3_67", w:"bird feeder", p:"(n)", ipa:"/ˈbɜːd fiːdə/", vi:"khay đựng thức ăn cho chim" },
+  { id:137, u:"u3_67", w:"put sth into practice", p:"(idiom)", ipa:"", vi:"đưa vào thực tế, áp dụng vào thực hành" },
+  { id:138, u:"u3_67", w:"propose", p:"(v)", ipa:"/prəˈpəʊz/", vi:"đề xuất, đưa ra ý kiến, cầu hôn" },
+  { id:139, u:"u3_67", w:"proposal", p:"(n)", ipa:"/prəˈpəʊzl/", vi:"lời đề nghị" },
+  { id:140, u:"u3_67", w:"proposer", p:"(n)", ipa:"/prəˈpəʊzə/", vi:"người đề xuất" },
+  { id:141, u:"u3_67", w:"predict", p:"(v)", ipa:"/prɪˈdɪkt/", vi:"tiên đoán" },
+  { id:142, u:"u3_67", w:"prediction", p:"(n)", ipa:"/prɪˈdɪkʃn/", vi:"sự tiên đoán" },
+  { id:143, u:"u3_67", w:"in the long/short/medium term", p:"(phrase)", ipa:"/tɜːm/", vi:"trong dài hạn / ngắn hạn / trung hạn", sg:"longterm" },
+  { id:144, u:"u3_67", w:"in the long run", p:"(phrase)", ipa:"", vi:"về lâu dài, xét về lâu dài", sg:"longterm" },
+  { id:145, u:"u3_67", w:"sky lantern", p:"(n)", ipa:"/skaɪ ˈlæntən/", vi:"đèn trời" },
+  { id:146, u:"u3_67", w:"spectacular", p:"(adj)", ipa:"/spekˈtækjələ/", vi:"ngoạn mục, hùng vĩ", note:"= breathtaking", sg:"spectacular" },
+  { id:147, u:"u3_67", w:"breathtaking", p:"(adj)", ipa:"/ˈbreθteɪkɪŋ/", vi:"ngoạn mục, hùng vĩ (đẹp đến nghẹt thở)", note:"= spectacular", sg:"spectacular" },
+  { id:148, u:"u3_67", w:"sight", p:"(v/n)", ipa:"/saɪt/", vi:"nhìn thấy, ngắm (v); cảnh đẹp, thắng cảnh, tầm nhìn (n)" },
+  { id:149, u:"u3_67", w:"fly – flew – flown", p:"(v)", ipa:"/flaɪ/ /fluː/ /fləʊn/", vi:"bay" },
+  { id:150, u:"u3_67", w:"frame", p:"(v/n)", ipa:"/freɪm/", vi:"đóng khung, tạo khung (v); khung, khuôn khổ (n)" },
+  { id:151, u:"u3_67", w:"wildfire", p:"(n)", ipa:"/ˈwaɪldfaɪə/", vi:"cháy rừng, đám cháy rừng" },
+  { id:152, u:"u3_67", w:"display (= show)", p:"(n)", ipa:"/dɪˈspleɪ/", vi:"màn trình diễn, sự trưng bày", note:"= show = exhibition", sg:"display" },
+  { id:153, u:"u3_67", w:"exhibition", p:"(n)", ipa:"/ˌeksɪˈbɪʃn/", vi:"sự trưng bày, triển lãm", note:"= display = show", sg:"display" },
+  { id:154, u:"u3_67", w:"chemical", p:"(adj/n)", ipa:"/ˈkemɪkl/", vi:"thuộc về hóa chất, hóa học (adj); hóa chất (n)" },
+
+  // REVIEW 1 (Trang 13 - 14)
+  { id:155, u:"rev1", w:"energy-efficient", p:"(adj)", ipa:"/ˈenədʒi ɪˈfɪʃnt/", vi:"tiết kiệm năng lượng, sử dụng năng lượng hiệu quả" },
+  { id:156, u:"rev1", w:"liver", p:"(n)", ipa:"/ˈlɪvə/", vi:"lá gan" },
+  { id:157, u:"rev1", w:"ethnic minority", p:"(n)", ipa:"/ˌeθnɪk maɪˈnɒrəti/", vi:"dân tộc thiểu số" },
+  { id:158, u:"rev1", w:"pass away", p:"(phr v)", ipa:"/ˌpɑːs əˈweɪ/", vi:"qua đời, từ trần, chết" },
+  { id:159, u:"rev1", w:"explore", p:"(v)", ipa:"/ɪkˈsplɔː/", vi:"khám phá, thám hiểm, tìm hiểu" },
+  { id:160, u:"rev1", w:"exploration", p:"(n)", ipa:"/ˌekspləˈreɪʃn/", vi:"sự khám phá, sự thám hiểm" },
+  { id:161, u:"rev1", w:"infect", p:"(v)", ipa:"/ɪnˈfekt/", vi:"lây nhiễm, truyền bệnh" },
+  { id:162, u:"rev1", w:"infection", p:"(n)", ipa:"/ɪnˈfekʃn/", vi:"sự nhiễm bệnh, sự lây nhiễm" },
+  { id:163, u:"rev1", w:"infectious", p:"(adj)", ipa:"/ɪnˈfekʃəs/", vi:"truyền nhiễm, dễ lây" },
+  { id:164, u:"rev1", w:"bacterium", p:"(n)", ipa:"/bækˈtɪəriəm/", vi:"vi khuẩn (số ít)" },
+  { id:165, u:"rev1", w:"bacteria", p:"(plural n)", ipa:"/bækˈtɪəriə/", vi:"các vi khuẩn (số nhiều)" },
+  { id:166, u:"rev1", w:"bacterial", p:"(adj)", ipa:"/bækˈtɪəriəl/", vi:"thuộc về vi khuẩn" },
+  { id:167, u:"rev1", w:"laboratory (= lab)", p:"(n)", ipa:"/ləˈbɒrətri/", vi:"phòng thí nghiệm", note:"= lab" },
+  { id:168, u:"rev1", w:"fund", p:"(n/v)", ipa:"/fʌnd/", vi:"quỹ, khoản tài trợ (n); tài trợ, cấp vốn (v)" },
+  { id:169, u:"rev1", w:"rubber tree", p:"(n)", ipa:"/ˈrʌbə triː/", vi:"cây cao su" },
+  { id:170, u:"rev1", w:"malaria", p:"(n)", ipa:"/məˈleəriə/", vi:"bệnh sốt rét" },
+  { id:171, u:"rev1", w:"remarkable", p:"(adj)", ipa:"/rɪˈmɑːkəbl/", vi:"đáng chú ý, đáng kinh ngạc, nổi bật" },
+  { id:172, u:"rev1", w:"bleed – bled – bled", p:"(v)", ipa:"/bliːd/ /bled/", vi:"chảy máu" },
+  { id:173, u:"rev1", w:"bleeding", p:"(n)", ipa:"/ˈbliːdɪŋ/", vi:"sự chảy máu" },
+  { id:174, u:"rev1", w:"blood", p:"(n)", ipa:"/blʌd/", vi:"máu" },
+
+  // UNIT 4: URBANISATION (Trang 14)
+  { id:175, u:"u4", w:"urbanise", p:"(v)", ipa:"/ˈɜːbənaɪz/", vi:"đô thị hóa" },
+  { id:176, u:"u4", w:"urbanisation", p:"(n)", ipa:"/ˌɜːbənaɪˈzeɪʃn/", vi:"quá trình đô thị hóa" },
+  { id:177, u:"u4", w:"urban", p:"(adj)", ipa:"/ˈɜːbən/", vi:"thuộc về thành phố, đô thị" },
+  { id:178, u:"u4", w:"rice field", p:"(n)", ipa:"/raɪs fiːld/", vi:"cánh đồng lúa" },
+  { id:179, u:"u4", w:"high-rise", p:"(n/adj)", ipa:"/ˈhaɪ raɪz/", vi:"tòa nhà cao tầng (n); cao tầng (adj)", note:"≠ low-rise" },
+  { id:180, u:"u4", w:"low-rise", p:"(n/adj)", ipa:"/ˈləʊ raɪz/", vi:"nhà thấp tầng (n); thấp tầng (adj)", note:"≠ high-rise" },
+  { id:181, u:"u4", w:"convenience store", p:"(n)", ipa:"/kənˈviːniəns stɔː/", vi:"cửa hàng tiện lợi" },
+  { id:182, u:"u4", w:"go for a ride", p:"(phrase)", ipa:"", vi:"đi chơi bằng phương tiện (xe đạp, xe máy, ô tô, ngựa)" },
+  { id:183, u:"u4", w:"leisure", p:"(n)", ipa:"/ˈleʒə/", vi:"sự giải trí" },
+  { id:184, u:"u4", w:"corner", p:"(n)", ipa:"/ˈkɔːnə/", vi:"góc" },
+  { id:185, u:"u4", w:"resident", p:"(n)", ipa:"/ˈrezɪdənt/", vi:"người dân" },
+  { id:186, u:"u4", w:"traffic jam", p:"(n)", ipa:"/ˈtræfɪk dʒæm/", vi:"tắc đường, kẹt xe" },
+  { id:187, u:"u4", w:"rush hour", p:"(n)", ipa:"/ˈrʌʃ aʊə/", vi:"giờ cao điểm" },
+  { id:188, u:"u4", w:"go up", p:"(phr v)", ipa:"", vi:"tăng lên", note:"≠ go down", sg:"increase" },
+  { id:189, u:"u4", w:"go down", p:"(phr v)", ipa:"", vi:"giảm xuống", note:"≠ go up", sg:"decrease" },
+  { id:190, u:"u4", w:"afford", p:"(v)", ipa:"/əˈfɔːd/", vi:"có đủ khả năng (chi trả / điều kiện)" },
+  { id:191, u:"u4", w:"affordable", p:"(adj)", ipa:"/əˈfɔːdəbl/", vi:"giá cả hợp lý" },
+  { id:192, u:"u4", w:"housing", p:"(n)", ipa:"/ˈhaʊzɪŋ/", vi:"nhà ở" },
+  { id:193, u:"u4", w:"seek", p:"(v)", ipa:"/siːk/", vi:"tìm kiếm" },
+  { id:194, u:"u4", w:"employ", p:"(v)", ipa:"/ɪmˈplɔɪ/", vi:"thuê, tuyển dụng, sử dụng" },
+  { id:195, u:"u4", w:"employee", p:"(n)", ipa:"/ɪmˈplɔɪiː/", vi:"nhân viên, người làm công" },
+  { id:196, u:"u4", w:"employer", p:"(n)", ipa:"/ɪmˈplɔɪə/", vi:"người sử dụng lao động, chủ" },
+  { id:197, u:"u4", w:"employment", p:"(n)", ipa:"/ɪmˈplɔɪmənt/", vi:"việc làm, sự tuyển dụng", note:"≠ unemployment" },
+  { id:198, u:"u4", w:"unemployment", p:"(n)", ipa:"/ˌʌnɪmˈplɔɪmənt/", vi:"sự thất nghiệp", note:"≠ employment" },
+  { id:199, u:"u4", w:"crime", p:"(n)", ipa:"/kraɪm/", vi:"tội phạm" }
+];
+
+/* ==================== 48 CÂU ĐỒNG NGHĨA & TRÁI NGHĨA ==================== */
+const SYN_ANT = [
+  // ---- TRONG TÀI LIỆU (25 câu) ----
+  { id:1, type:"syn", src:"book", word:"effective", pair:"efficacious",
+    sentence:"This new method is very **effective** in reducing plastic waste.",
+    options:["efficacious","ineffective","gradual","temporary"], ans:"efficacious",
+    exp:"effective = efficacious (hiệu quả). Trong Unit 3 - I. Getting Started." },
+  { id:2, type:"ant", src:"book", word:"effective", pair:"ineffective",
+    sentence:"Without community support, the clean-up campaign will not be **effective**.",
+    options:["ineffective","efficacious","reusable","affordable"], ans:"ineffective",
+    exp:"effective (hiệu quả) ≠ ineffective (không hiệu quả)." },
+  { id:3, type:"syn", src:"book", word:"certain", pair:"sure",
+    sentence:"Scientists are **certain** that human activities increase the carbon footprint.",
+    options:["sure","uncertain","frequent","private"], ans:"sure",
+    exp:"certain = sure (chắc chắn)." },
+  { id:4, type:"ant", src:"book", word:"certain", pair:"uncertain",
+    sentence:"She was **certain** that all those glass jars could be recycled.",
+    options:["uncertain","sure","noticeable","remarkable"], ans:"uncertain",
+    exp:"certain (chắc chắn) ≠ uncertain (không chắc chắn)." },
+  { id:5, type:"ant", src:"book", word:"certainty", pair:"uncertainty",
+    sentence:"He spoke with complete **certainty** about the results of the experiment.",
+    options:["uncertainty","necessity","awareness","existence"], ans:"uncertainty",
+    exp:"certainty (sự chắc chắn) ≠ uncertainty (sự không chắc chắn)." },
+  { id:6, type:"syn", src:"book", word:"spectacular", pair:"breathtaking",
+    sentence:"The sky lantern festival created a **spectacular** view at night.",
+    options:["breathtaking","unnoticed","harmful","infectious"], ans:"breathtaking",
+    exp:"spectacular = breathtaking (ngoạn mục, hùng vĩ)." },
+  { id:7, type:"syn", src:"book", word:"display", pair:"exhibition",
+    sentence:"We visited an impressive **display** of recycled art and crafts yesterday.",
+    options:["exhibition","wildfire","landfill","measurement"], ans:"exhibition",
+    exp:"display = show = exhibition (màn trình diễn, sự trưng bày, triển lãm)." },
+  { id:8, type:"syn", src:"book", word:"laboratory", pair:"lab",
+    sentence:"The researchers tested the water samples carefully in the **laboratory**.",
+    options:["lab","facility","container","landfill"], ans:"lab",
+    exp:"laboratory = lab (phòng thí nghiệm)." },
+  { id:9, type:"ant", src:"book", word:"necessary", pair:"unnecessary",
+    sentence:"Sorting household waste is **necessary** for protecting the environment.",
+    options:["unnecessary","reusable","convenient","additional"], ans:"unnecessary",
+    exp:"necessary (cần thiết) ≠ unnecessary (không cần thiết)." },
+  { id:10, type:"ant", src:"book", word:"harmful", pair:"harmless",
+    sentence:"Burning plastic bags releases **harmful** chemicals into the air.",
+    options:["harmless","polluted","infectious","bacterial"], ans:"harmless",
+    exp:"harmful to (có hại) ≠ harmless to (vô hại)." },
+  { id:11, type:"ant", src:"book", word:"dependence", pair:"independence",
+    sentence:"Many countries are trying to reduce their **dependence** on fossil fuels.",
+    options:["independence","existence","convenience","contamination"], ans:"independence",
+    exp:"dependence (sự phụ thuộc) ≠ independence (sự độc lập)." },
+  { id:12, type:"ant", src:"book", word:"dependent", pair:"independent",
+    sentence:"Young people should learn to be less **dependent** on their parents.",
+    options:["independent","competitive","convenient","frequent"], ans:"independent",
+    exp:"dependent on (phụ thuộc vào) ≠ independent of (độc lập với)." },
+  { id:13, type:"ant", src:"book", word:"high-rise", pair:"low-rise",
+    sentence:"More **high-rise** buildings are being constructed in the city centre.",
+    options:["low-rise","single-use","eco-friendly","energy-efficient"], ans:"low-rise",
+    exp:"high-rise (cao tầng) ≠ low-rise (thấp tầng)." },
+  { id:14, type:"ant", src:"book", word:"noticeable", pair:"unnoticed",
+    sentence:"There has been a **noticeable** improvement in the city's air quality.",
+    options:["unnoticed","remarkable","gradual","existent"], ans:"unnoticed",
+    exp:"noticeable (dễ nhận thấy) ≠ unnoticed (không được chú ý)." },
+  { id:15, type:"ant", src:"book", word:"go up", pair:"go down",
+    sentence:"Housing prices in urban areas tend to **go up** rapidly.",
+    options:["go down","rush out","clean up","print out"], ans:"go down",
+    exp:"go up (tăng lên) ≠ go down (giảm xuống)." },
+  { id:16, type:"ant", src:"book", word:"employment", pair:"unemployment",
+    sentence:"Rapid urbanisation can create new **employment** opportunities for residents.",
+    options:["unemployment","exploration","decomposition","urbanisation"], ans:"unemployment",
+    exp:"employment (việc làm, sự tuyển dụng) ≠ unemployment (sự thất nghiệp)." },
+  { id:17, type:"syn", src:"book", word:"pollute", pair:"contaminate",
+    sentence:"Factory waste can **pollute** local rivers and harm wildlife.",
+    options:["contaminate","decompose","fertilize","recycle"], ans:"contaminate",
+    exp:"pollute = contaminate (gây ô nhiễm / làm ô nhiễm)." },
+  { id:18, type:"syn", src:"book", word:"polluted", pair:"contaminated",
+    sentence:"Swimming in **polluted** water can cause serious skin infections.",
+    options:["contaminated","compostable","refillable","air-conditioned"], ans:"contaminated",
+    exp:"polluted = contaminated (bị ô nhiễm)." },
+  { id:19, type:"syn", src:"book", word:"pollution", pair:"contamination",
+    sentence:"Reducing air **pollution** is a major goal of green living.",
+    options:["contamination","reduction","prediction","competition"], ans:"contamination",
+    exp:"pollution = contamination (sự ô nhiễm)." },
+  { id:20, type:"syn", src:"book", word:"throw away", pair:"get rid of",
+    sentence:"Don't **throw away** old glass jars; you can reuse them as flower pots.",
+    options:["get rid of","make use of","pick up","pass away"], ans:"get rid of",
+    exp:"throw away (vứt bỏ) ≈ get rid of (loại bỏ)." },
+  { id:21, type:"syn", src:"book", word:"in the long term", pair:"in the long run",
+    sentence:"Using energy-efficient appliances will save money **in the long term**.",
+    options:["in the long run","in the short term","in advance","by mistake"], ans:"in the long run",
+    exp:"in the long term (trong dài hạn) = in the long run (về lâu dài)." },
+  { id:22, type:"ant", src:"book", word:"in the long term", pair:"in the short term",
+    sentence:"This green policy looks costly now, but it brings great benefits **in the long term**.",
+    options:["in the short term","in the long run","on average","by chance"], ans:"in the short term",
+    exp:"in the long term (trong dài hạn) ≠ in the short term (trong ngắn hạn)." },
+  { id:23, type:"ant", src:"book", word:"raise", pair:"reduce",
+    sentence:"The government plans to **raise** taxes on single-use plastic bags.",
+    options:["reduce","propose","refill","remind"], ans:"reduce",
+    exp:"raise (nâng lên, làm tăng) ≠ reduce (giảm)." },
+  { id:24, type:"ant", src:"book", word:"single-use", pair:"reusable",
+    sentence:"We should replace **single-use** plastic cups with bamboo ones.",
+    options:["reusable","compostable","polluted","gradual"], ans:"reusable",
+    exp:"single-use (dùng một lần) ≠ reusable (có thể tái sử dụng)." },
+  { id:25, type:"ant", src:"book", word:"employee", pair:"employer",
+    sentence:"Every **employee** in the company is encouraged to save electricity.",
+    options:["employer","competitor","proposer","resident"], ans:"employer",
+    exp:"employee (nhân viên, người làm công) ≠ employer (người sử dụng lao động, chủ)." },
+
+  // ---- MỞ RỘNG CHUẨN THI THPT (23 câu) ----
+  { id:26, type:"syn", src:"exam", word:"pass away", pair:"die",
+    sentence:"The famous scientist **passed away** peacefully at the age of ninety.",
+    options:["died","escaped","retired","arrived"], ans:"died",
+    exp:"pass away = die (qua đời, từ trần, chết)." },
+  { id:27, type:"syn", src:"exam", word:"seek", pair:"look for",
+    sentence:"Many people move to big cities to **seek** better job opportunities.",
+    options:["look for","give up","depend on","rush out"], ans:"look for",
+    exp:"seek = look for (tìm kiếm)." },
+  { id:28, type:"syn", src:"exam", word:"propose", pair:"suggest",
+    sentence:"The student council will **propose** a new recycling programme to the principal.",
+    options:["suggest","predict","infect","employ"], ans:"suggest",
+    exp:"propose = suggest (đề xuất, đưa ra ý kiến)." },
+  { id:29, type:"syn", src:"exam", word:"predict", pair:"forecast",
+    sentence:"Experts **predict** that urban populations will continue to grow.",
+    options:["forecast","contain","behave","afford"], ans:"forecast",
+    exp:"predict = forecast (tiên đoán, dự báo)." },
+  { id:30, type:"syn", src:"exam", word:"make use of", pair:"take advantage of",
+    sentence:"Farmers can **make use of** organic waste to produce compost.",
+    options:["take advantage of","get rid of","put off","run out of"], ans:"take advantage of",
+    exp:"make use of = take advantage of (tận dụng)." },
+  { id:31, type:"syn", src:"exam", word:"remarkable", pair:"extraordinary",
+    sentence:"She made **remarkable** progress in her research on malaria.",
+    options:["extraordinary","unnecessary","uncertain","harmless"], ans:"extraordinary",
+    exp:"remarkable = extraordinary (đáng chú ý, đáng kinh ngạc, nổi bật)." },
+  { id:32, type:"syn", src:"exam", word:"eco-friendly", pair:"environmentally friendly",
+    sentence:"Consumers are increasingly choosing **eco-friendly** packaging.",
+    options:["environmentally friendly","energy-consuming","single-use","harmful"], ans:"environmentally friendly",
+    exp:"eco-friendly = environmentally friendly (thân thiện với môi trường)." },
+  { id:33, type:"syn", src:"exam", word:"additional", pair:"extra",
+    sentence:"The school needs **additional** funding to upgrade its laboratory.",
+    options:["extra","initial","private","urban"], ans:"extra",
+    exp:"additional = extra (bổ sung, thêm)." },
+  { id:34, type:"syn", src:"exam", word:"properly", pair:"appropriately",
+    sentence:"Please make sure all containers are rinsed out **properly** before recycling.",
+    options:["appropriately","gradually","noticeably","frequently"], ans:"appropriately",
+    exp:"properly = appropriately (đúng cách, phù hợp)." },
+  { id:35, type:"syn", src:"exam", word:"rush hour", pair:"peak hour",
+    sentence:"Traffic jams are always terrible during **rush hour**.",
+    options:["peak hour","leisure time","quiet hour","off-peak period"], ans:"peak hour",
+    exp:"rush hour = peak hour (giờ cao điểm)." },
+  { id:36, type:"syn", src:"exam", word:"resident", pair:"inhabitant",
+    sentence:"Every local **resident** was invited to join the Sunday clean-up.",
+    options:["inhabitant","competitor","judge","proposer"], ans:"inhabitant",
+    exp:"resident = inhabitant (người dân, cư dân)." },
+  { id:37, type:"syn", src:"exam", word:"affordable", pair:"reasonably priced",
+    sentence:"Young workers struggle to find **affordable** housing in big cities.",
+    options:["reasonably priced","extremely expensive","unnecessary","low-rise"], ans:"reasonably priced",
+    exp:"affordable = reasonably priced (giá cả hợp lý, vừa túi tiền)." },
+  { id:38, type:"syn", src:"exam", word:"decompose", pair:"break down",
+    sentence:"Fruit peels **decompose** much faster than plastic bags.",
+    options:["break down","go up","print out","pick up"], ans:"break down",
+    exp:"decompose = break down (phân hủy)." },
+  { id:39, type:"ant", src:"exam", word:"private", pair:"public",
+    sentence:"Using buses instead of **private** vehicles helps cut carbon emissions.",
+    options:["public","personal","convenient","additional"], ans:"public",
+    exp:"private (riêng tư, cá nhân) ≠ public (công cộng)." },
+  { id:40, type:"ant", src:"exam", word:"urban", pair:"rural",
+    sentence:"Life in **urban** areas is often much busier than in the countryside.",
+    options:["rural","modern","high-rise","crowded"], ans:"rural",
+    exp:"urban (thuộc về đô thị) ≠ rural (thuộc về nông thôn)." },
+  { id:41, type:"ant", src:"exam", word:"convenient", pair:"inconvenient",
+    sentence:"Living near a convenience store is very **convenient** for students.",
+    options:["inconvenient","affordable","comfortable","accessible"], ans:"inconvenient",
+    exp:"convenient (tiện lợi) ≠ inconvenient (bất tiện)." },
+  { id:42, type:"ant", src:"exam", word:"gradual", pair:"sudden",
+    sentence:"Climate change causes a **gradual** rise in global temperatures.",
+    options:["sudden","slow","steady","frequent"], ans:"sudden",
+    exp:"gradual (dần dần, từ từ) ≠ sudden (đột ngột)." },
+  { id:43, type:"ant", src:"exam", word:"frequent", pair:"rare",
+    sentence:"Wildfires have become more **frequent** due to extreme heat.",
+    options:["rare","regular","common","remarkable"], ans:"rare",
+    exp:"frequent (thường xuyên) ≠ rare (hiếm gặp)." },
+  { id:44, type:"ant", src:"exam", word:"affordable", pair:"expensive",
+    sentence:"The city built more **affordable** apartments for low-income families.",
+    options:["expensive","cheap","reasonable","suitable"], ans:"expensive",
+    exp:"affordable (giá cả hợp lý) ≠ expensive (đắt đỏ)." },
+  { id:45, type:"ant", src:"exam", word:"exist", pair:"disappear",
+    sentence:"Many rare species may no longer **exist** if we destroy their habitats.",
+    options:["disappear","survive","remain","appear"], ans:"disappear",
+    exp:"exist (tồn tại) ≠ disappear (biến mất)." },
+  { id:46, type:"ant", src:"exam", word:"contaminated", pair:"pure",
+    sentence:"People should never drink **contaminated** water from polluted rivers.",
+    options:["pure","dirty","toxic","polluted"], ans:"pure",
+    exp:"contaminated (bị ô nhiễm) ≠ pure (tinh khiết, sạch)." },
+  { id:47, type:"ant", src:"exam", word:"infectious", pair:"non-contagious",
+    sentence:"Doctors warned that the new bacterial disease is highly **infectious**.",
+    options:["non-contagious","deadly","dangerous","common"], ans:"non-contagious",
+    exp:"infectious (truyền nhiễm, dễ lây) ≠ non-contagious (không lây nhiễm)." },
+  { id:48, type:"ant", src:"exam", word:"bury", pair:"dig up",
+    sentence:"Most solid waste is collected and **buried** in large landfills.",
+    options:["dug up","wrapped","sorted","mixed"], ans:"dug up",
+    exp:"bury / buried (chôn vùi) ≠ dig up / dug up (đào lên)." }
+];
+
+/* ==================== TIỆN ÍCH CHUNG ==================== */
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function cleanWordForSpeech(w) {
+  return w.replace(/\(=.*?\)/g, "")
+          .replace(/\/.*$/, "")
+          .replace(/–.*$/, "")
+          .replace(/\+.*$/, "")
+          .replace(/\bsth\/so\b/g, "someone")
+          .replace(/\bsth\b/g, "something")
+          .trim();
+}
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(cleanWordForSpeech(text));
+  u.lang = "en-GB";
+  u.rate = 0.92;
+  window.speechSynthesis.speak(u);
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+  localStorage.setItem("vocab_theme", isDark ? "light" : "dark");
+  document.getElementById("themeToggle").textContent = isDark ? "🌙 Giao diện tối" : "☀️ Giao diện sáng";
+}
+if (localStorage.getItem("vocab_theme") === "dark") {
+  document.documentElement.setAttribute("data-theme", "dark");
+  document.getElementById("themeToggle").textContent = "☀️ Giao diện sáng";
+}
+
+let activeTab = "vocab";
+function switchTab(tab, btn) {
+  activeTab = tab;
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + tab).classList.add("active");
+  btn.classList.add("active");
+  if (tab === "flashcard" && fcList.length === 0) initFlashcards();
+  if (tab === "dict") renderDict();
+}
+
+/* ==================== LƯU TỪ LÀM SAI ==================== */
+let wrongBank = JSON.parse(localStorage.getItem("vocab_wrong_ids") || "[]");
+function saveWrongBank() {
+  localStorage.setItem("vocab_wrong_ids", JSON.stringify(wrongBank));
+  updateWrongBadges();
+}
+function updateWrongBadges() {
+  document.getElementById("wrongBadge").textContent = wrongBank.length;
+  document.getElementById("wrongCountOpt").textContent = wrongBank.length;
+}
+function addWrongId(id) {
+  if (!wrongBank.includes(id)) { wrongBank.push(id); saveWrongBank(); }
+}
+function removeWrongId(id) {
+  const idx = wrongBank.indexOf(id);
+  if (idx !== -1) { wrongBank.splice(idx, 1); saveWrongBank(); }
+}
+function clearWrongBank() {
+  wrongBank = [];
+  saveWrongBank();
+}
+updateWrongBadges();
+
+/* ==================== TAB 1: TRẮC NGHIỆM TỪ VỰNG ==================== */
+let vqQuestions = [];
+let vqIdx = 0;
+let vqScore = 0;
+let vqStreak = 0;
+let vqAnswered = false;
+let vqSessionWrong = [];
+
+function getSmartDistractors(target, count = 3) {
+  const samePos = VOCAB.filter(v =>
+    v.id !== target.id &&
+    v.vi !== target.vi &&
+    (!target.sg || v.sg !== target.sg) &&
+    v.p === target.p
+  );
+  const others = VOCAB.filter(v =>
+    v.id !== target.id &&
+    v.vi !== target.vi &&
+    (!target.sg || v.sg !== target.sg) &&
+    v.p !== target.p
+  );
+  const chosen = [];
+  const usedVi = new Set([target.vi]);
+  const usedSg = new Set(target.sg ? [target.sg] : []);
+  for (const cand of [...shuffle(samePos), ...shuffle(others)]) {
+    if (chosen.length >= count) break;
+    if (usedVi.has(cand.vi)) continue;
+    if (cand.sg && usedSg.has(cand.sg)) continue;
+    chosen.push(cand);
+    usedVi.add(cand.vi);
+    if (cand.sg) usedSg.add(cand.sg);
+  }
+  return chosen;
+}
+
+function buildVocabQuizFromList(pool) {
+  const dirSetting = document.getElementById("vq-dir").value;
+  const maxCount = parseInt(document.getElementById("vq-count").value, 10);
+  const selected = shuffle(pool).slice(0, maxCount);
+
+  vqQuestions = selected.map(item => {
+    const dir = dirSetting === "mix" ? (Math.random() < 0.5 ? "en2vi" : "vi2en") : dirSetting;
+    const distractors = getSmartDistractors(item, 3);
+    const options = shuffle([item, ...distractors]).map(opt => ({
+      id: opt.id,
+      label: dir === "en2vi" ? opt.vi : `${opt.w} ${opt.p}`,
+      isCorrect: opt.id === item.id
+    }));
+    return { item, dir, options };
+  });
+
+  vqIdx = 0; vqScore = 0; vqStreak = 0; vqSessionWrong = [];
+  document.getElementById("vq-setup").classList.add("hidden");
+  document.getElementById("vq-result").classList.add("hidden");
+  document.getElementById("vq-play").classList.remove("hidden");
+  renderVocabQ();
+}
+
+function startVocabQuiz() {
+  const unit = document.getElementById("vq-unit").value;
+  let pool;
+  if (unit === "wrong_only") {
+    pool = VOCAB.filter(v => wrongBank.includes(v.id));
+    if (pool.length === 0) { alert("Bạn chưa có câu sai nào cần ôn!"); return; }
+  } else {
+    pool = unit === "all" ? VOCAB : VOCAB.filter(v => v.u === unit);
+  }
+  buildVocabQuizFromList(pool);
+}
+
+function startWrongVocabQuiz() {
+  const pool = VOCAB.filter(v => wrongBank.includes(v.id));
+  if (pool.length === 0) { alert("Tuyệt vời! Hiện chưa có từ sai nào trong danh sách."); return; }
+  document.getElementById("vq-count").value = "999";
+  buildVocabQuizFromList(pool);
+}
+
+function retrySessionWrongVocab() {
+  if (vqSessionWrong.length === 0) return;
+  buildVocabQuizFromList(vqSessionWrong);
+}
+
+function renderVocabQ() {
+  vqAnswered = false;
+  const q = vqQuestions[vqIdx];
+  const item = q.item;
+  document.getElementById("vq-idx").textContent = vqIdx + 1;
+  document.getElementById("vq-total").textContent = vqQuestions.length;
+  document.getElementById("vq-score").textContent = vqScore;
+  document.getElementById("vq-streak").textContent = vqStreak;
+  document.getElementById("vq-bar").style.width = `${(vqIdx / vqQuestions.length) * 100}%`;
+  document.getElementById("vq-unit-tag").textContent = UNIT_NAMES[item.u];
+  document.getElementById("vq-dir-tag").textContent = q.dir === "en2vi" ? "Anh → Việt" : "Việt → Anh";
+
+  const promptEl = document.getElementById("vq-prompt");
+  const subEl = document.getElementById("vq-sub");
+  if (q.dir === "en2vi") {
+    promptEl.innerHTML = `<span>${item.w}</span> <button class="speak-btn" onclick="speak(\`${item.w.replace(/`/g,'')}\`)">🔊 Nghe</button>`;
+    subEl.textContent = `${item.p} ${item.ipa} — Chọn nghĩa tiếng Việt đúng nhất:`;
+  } else {
+    promptEl.textContent = item.vi;
+    subEl.textContent = `Từ loại: ${item.p} — Chọn từ tiếng Anh tương ứng:`;
+  }
+
+  const optWrap = document.getElementById("vq-options");
+  optWrap.innerHTML = "";
+  const letters = ["A", "B", "C", "D"];
+  q.options.forEach((opt, i) => {
+    const b = document.createElement("button");
+    b.className = "opt-btn";
+    b.innerHTML = `<span class="opt-key">${letters[i]}</span><span>${opt.label}</span>`;
+    b.onclick = () => selectVocabOpt(i);
+    optWrap.appendChild(b);
+  });
+
+  const fb = document.getElementById("vq-feedback");
+  fb.className = "feedback-box";
+  fb.innerHTML = "";
+  document.getElementById("vq-next").classList.add("hidden");
+}
+
+function selectVocabOpt(i) {
+  if (vqAnswered) return;
+  vqAnswered = true;
+  const q = vqQuestions[vqIdx];
+  const btns = document.querySelectorAll("#vq-options .opt-btn");
+  btns.forEach((b, idx) => {
+    b.disabled = true;
+    if (q.options[idx].isCorrect) b.classList.add("correct");
+  });
+
+  const chosen = q.options[i];
+  const fb = document.getElementById("vq-feedback");
+  const item = q.item;
+
+  if (chosen.isCorrect) {
+    vqScore++;
+    vqStreak++;
+    removeWrongId(item.id);
+    fb.className = "feedback-box show ok";
+    fb.innerHTML = `<b>✅ Chính xác!</b> <b>${item.w}</b> ${item.p} ${item.ipa}: ${item.vi}${item.note ? `<br><small>📌 Ghi chú: ${item.note}</small>` : ""}`;
+  } else {
+    btns[i].classList.add("wrong");
+    vqStreak = 0;
+    addWrongId(item.id);
+    if (!vqSessionWrong.some(x => x.id === item.id)) vqSessionWrong.push(item);
+    fb.className = "feedback-box show no";
+    fb.innerHTML = `<b>❌ Chưa đúng!</b> Đáp án đúng là: <b>${item.w}</b> ${item.p} ${item.ipa} — <b>${item.vi}</b>${item.note ? `<br><small>📌 Ghi chú: ${item.note}</small>` : ""}`;
+  }
+
+  document.getElementById("vq-score").textContent = vqScore;
+  document.getElementById("vq-streak").textContent = vqStreak;
+  const nextBtn = document.getElementById("vq-next");
+  nextBtn.textContent = vqIdx + 1 === vqQuestions.length ? "Xem kết quả 🏁" : "Câu tiếp theo →";
+  nextBtn.classList.remove("hidden");
+}
+
+function nextVocabQ() {
+  if (vqIdx + 1 < vqQuestions.length) {
+    vqIdx++;
+    renderVocabQ();
+  } else {
+    showVocabResult();
+  }
+}
+
+function showVocabResult() {
+  document.getElementById("vq-play").classList.add("hidden");
+  document.getElementById("vq-result").classList.remove("hidden");
+  const pct = Math.round((vqScore / vqQuestions.length) * 100);
+  document.getElementById("vq-final-score").textContent = `${vqScore} / ${vqQuestions.length} (${pct}%)`;
+  document.getElementById("vq-final-msg").textContent =
+    pct >= 90 ? "🌟 Xuất sắc! Bạn gần như đã thuộc nằm lòng phần này!" :
+    pct >= 70 ? "👍 Làm tốt lắm! Hãy xem lại vài từ sai bên dưới nhé." :
+    "💪 Cố lên! Ôn lại các từ sai ngay để nhớ lâu hơn nhé.";
+
+  const retryBtn = document.getElementById("vq-retry-wrong");
+  const reviewDiv = document.getElementById("vq-wrong-review");
+  if (vqSessionWrong.length > 0) {
+    retryBtn.classList.remove("hidden");
+    reviewDiv.innerHTML = `<h3 style="margin-top:10px;">Các từ cần ôn lại (${vqSessionWrong.length}):</h3><div class="wrong-list">` +
+      vqSessionWrong.map(w => `
+        <div class="wrong-item">
+          <div><b>${w.w}</b> <span style="color:var(--muted)">${w.p} ${w.ipa}</span><br>${w.vi}</div>
+          <button class="speak-btn" onclick="speak(\`${w.w.replace(/`/g,'')}\`)">🔊</button>
+        </div>`).join("") + `</div>`;
+  } else {
+    retryBtn.classList.add("hidden");
+    reviewDiv.innerHTML = `<p style="text-align:center;color:var(--primary);font-weight:700;">🎉 Không sai câu nào!</p>`;
+  }
+}
+
+function exitVocabQuiz() {
+  document.getElementById("vq-play").classList.add("hidden");
+  document.getElementById("vq-result").classList.add("hidden");
+  document.getElementById("vq-setup").classList.remove("hidden");
+}
+
+/* ==================== TAB 2: ĐỒNG NGHĨA & TRÁI NGHĨA ==================== */
+let sqQuestions = [];
+let sqIdx = 0;
+let sqScore = 0;
+let sqAnswered = false;
+let sqWrongList = [];
+
+function switchSynSub(mode, btn) {
+  document.querySelectorAll(".sub-tab").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  if (mode === "quiz") {
+    document.getElementById("syn-quiz-wrap").classList.remove("hidden");
+    document.getElementById("syn-table-wrap").classList.add("hidden");
+  } else {
+    document.getElementById("syn-quiz-wrap").classList.add("hidden");
+    document.getElementById("syn-table-wrap").classList.remove("hidden");
+    renderSynTable();
+  }
+}
+
+function startSynQuiz(customPool) {
+  let pool = customPool;
+  if (!pool) {
+    const typeF = document.getElementById("sq-type").value;
+    const srcF = document.getElementById("sq-src").value;
+    const count = parseInt(document.getElementById("sq-count").value, 10);
+    pool = SYN_ANT.filter(q =>
+      (typeF === "all" || q.type === typeF) &&
+      (srcF === "all" || q.src === srcF)
+    );
+    pool = shuffle(pool).slice(0, count);
+  } else {
+    pool = shuffle(pool);
+  }
+  if (pool.length === 0) { alert("Không có câu hỏi phù hợp bộ lọc!"); return; }
+
+  sqQuestions = pool.map(q => ({ ...q, shuffledOptions: shuffle(q.options) }));
+  sqIdx = 0; sqScore = 0; sqWrongList = [];
+  document.getElementById("sq-setup").classList.add("hidden");
+  document.getElementById("sq-result").classList.add("hidden");
+  document.getElementById("sq-play").classList.remove("hidden");
+  renderSynQ();
+}
+
+function retrySynWrong() {
+  if (sqWrongList.length > 0) startSynQuiz(sqWrongList);
+}
+
+function renderSynQ() {
+  sqAnswered = false;
+  const q = sqQuestions[sqIdx];
+  document.getElementById("sq-idx").textContent = sqIdx + 1;
+  document.getElementById("sq-total").textContent = sqQuestions.length;
+  document.getElementById("sq-score").textContent = sqScore;
+  document.getElementById("sq-bar").style.width = `${(sqIdx / sqQuestions.length) * 100}%`;
+
+  const tBadge = document.getElementById("sq-type-badge");
+  const inst = document.getElementById("sq-instruction");
+  if (q.type === "syn") {
+    tBadge.className = "pill pill-green";
+    tBadge.textContent = "ĐỒNG NGHĨA (CLOSEST)";
+    inst.innerHTML = `Chọn từ <span style="color:var(--primary-dark)">ĐỒNG NGHĨA (CLOSEST in meaning)</span> với từ gạch chân:`;
+  } else {
+    tBadge.className = "pill pill-red";
+    tBadge.textContent = "TRÁI NGHĨA (OPPOSITE)";
+    inst.innerHTML = `Chọn từ <span style="color:var(--danger)">TRÁI NGHĨA (OPPOSITE in meaning)</span> với từ gạch chân:`;
+  }
+
+  document.getElementById("sq-src-badge").textContent = q.src === "book" ? "📖 Trong tài liệu" : "🎓 Mở rộng THPT";
+  document.getElementById("sq-sentence").innerHTML = q.sentence.replace(/\*\*(.*?)\*\*/g, '<span class="hl-word">$1</span>');
+
+  const optWrap = document.getElementById("sq-options");
+  optWrap.innerHTML = "";
+  const letters = ["A", "B", "C", "D"];
+  q.shuffledOptions.forEach((opt, i) => {
+    const b = document.createElement("button");
+    b.className = "opt-btn";
+    b.innerHTML = `<span class="opt-key">${letters[i]}</span><span>${opt}</span>`;
+    b.onclick = () => selectSynOpt(i);
+    optWrap.appendChild(b);
+  });
+
+  const fb = document.getElementById("sq-feedback");
+  fb.className = "feedback-box";
+  fb.innerHTML = "";
+  document.getElementById("sq-next").classList.add("hidden");
+}
+
+function selectSynOpt(i) {
+  if (sqAnswered) return;
+  sqAnswered = true;
+  const q = sqQuestions[sqIdx];
+  const btns = document.querySelectorAll("#sq-options .opt-btn");
+  btns.forEach((b, idx) => {
+    b.disabled = true;
+    if (q.shuffledOptions[idx] === q.ans) b.classList.add("correct");
+  });
+
+  const chosen = q.shuffledOptions[i];
+  const fb = document.getElementById("sq-feedback");
+  if (chosen === q.ans) {
+    sqScore++;
+    fb.className = "feedback-box show ok";
+    fb.innerHTML = `<b>✅ Chính xác!</b> ${q.exp}`;
+  } else {
+    btns[i].classList.add("wrong");
+    sqWrongList.push(q);
+    fb.className = "feedback-box show no";
+    fb.innerHTML = `<b>❌ Chưa đúng!</b> Đáp án đúng là <b>${q.ans}</b>.<br>${q.exp}`;
+  }
+  document.getElementById("sq-score").textContent = sqScore;
+  const nextBtn = document.getElementById("sq-next");
+  nextBtn.textContent = sqIdx + 1 === sqQuestions.length ? "Xem kết quả 🏁" : "Câu tiếp theo →";
+  nextBtn.classList.remove("hidden");
+}
+
+function nextSynQ() {
+  if (sqIdx + 1 < sqQuestions.length) { sqIdx++; renderSynQ(); }
+  else showSynResult();
+}
+
+function showSynResult() {
+  document.getElementById("sq-play").classList.add("hidden");
+  document.getElementById("sq-result").classList.remove("hidden");
+  const pct = Math.round((sqScore / sqQuestions.length) * 100);
+  document.getElementById("sq-final-score").textContent = `${sqScore} / ${sqQuestions.length} (${pct}%)`;
+  document.getElementById("sq-final-msg").textContent =
+    pct >= 85 ? "🌟 Rất xuất sắc! Bạn nắm cực chắc phần Đồng nghĩa – Trái nghĩa!" :
+    pct >= 65 ? "👍 Khá tốt! Chú ý đừng nhầm giữa yêu cầu CLOSEST và OPPOSITE nhé." :
+    "💪 Hãy xem qua Bảng tổng hợp rồi làm lại để đạt điểm tối đa!";
+
+  const retryBtn = document.getElementById("sq-retry-wrong");
+  const rev = document.getElementById("sq-wrong-review");
+  if (sqWrongList.length > 0) {
+    retryBtn.classList.remove("hidden");
+    rev.innerHTML = `<h3 style="margin-top:10px;">Các câu cần xem lại (${sqWrongList.length}):</h3><div class="wrong-list">` +
+      sqWrongList.map(q => `
+        <div class="wrong-item">
+          <div>
+            <span class="pill ${q.type === 'syn' ? 'pill-green' : 'pill-red'}">${q.type === 'syn' ? 'CLOSEST' : 'OPPOSITE'}</span>
+            <b> ${q.word} ${q.type === 'syn' ? '=' : '≠'} ${q.ans}</b><br>
+            <small>${q.exp}</small>
+          </div>
+        </div>`).join("") + `</div>`;
+  } else {
+    retryBtn.classList.add("hidden");
+    rev.innerHTML = `<p style="text-align:center;color:var(--primary);font-weight:700;">🎉 Tuyệt đối 100%!</p>`;
+  }
+}
+
+function exitSynQuiz() {
+  document.getElementById("sq-play").classList.add("hidden");
+  document.getElementById("sq-result").classList.add("hidden");
+  document.getElementById("sq-setup").classList.remove("hidden");
+}
+
+function renderSynTable() {
+  const f = document.getElementById("st-filter").value;
+  const kw = document.getElementById("st-search").value.trim().toLowerCase();
+  const rows = SYN_ANT.filter(x => {
+    if (f === "syn" && x.type !== "syn") return false;
+    if (f === "ant" && x.type !== "ant") return false;
+    if (f === "book" && x.src !== "book") return false;
+    if (kw && !(x.word.toLowerCase().includes(kw) || x.pair.toLowerCase().includes(kw) || x.exp.toLowerCase().includes(kw))) return false;
+    return true;
+  });
+  document.getElementById("syn-table-body").innerHTML = rows.map(r => `
+    <tr>
+      <td><span class="pill ${r.type === 'syn' ? 'pill-green' : 'pill-red'}">${r.type === 'syn' ? '= Đồng nghĩa' : '≠ Trái nghĩa'}</span></td>
+      <td><b>${r.word}</b></td>
+      <td><b>${r.pair}</b></td>
+      <td>${r.exp}</td>
+      <td><span class="pill pill-indigo">${r.src === 'book' ? 'Tài liệu' : 'Thi THPT'}</span></td>
+    </tr>
+  `).join("");
+}
+
+/* ==================== TAB 3: FLASHCARDS ==================== */
+let fcList = [];
+let fcIdx = 0;
+let fcKnown = new Set();
+
+function initFlashcards() {
+  const unit = document.getElementById("fc-unit").value;
+  fcList = unit === "all" ? [...VOCAB] : VOCAB.filter(v => v.u === unit);
+  fcIdx = 0;
+  fcKnown.clear();
+  renderFC();
+}
+function shuffleFlashcards() {
+  fcList = shuffle(fcList);
+  fcIdx = 0;
+  renderFC();
+}
+function renderFC() {
+  if (fcList.length === 0) return;
+  const card = document.getElementById("fc-card");
+  card.classList.remove("flipped");
+  const item = fcList[fcIdx];
+  document.getElementById("fc-idx").textContent = fcIdx + 1;
+  document.getElementById("fc-total").textContent = fcList.length;
+  document.getElementById("fc-known").textContent = fcKnown.size;
+  document.getElementById("fc-unit-badge").textContent = UNIT_NAMES[item.u];
+  document.getElementById("fc-word").textContent = item.w;
+  document.getElementById("fc-ipa").textContent = `${item.p}  ${item.ipa}`;
+  document.getElementById("fc-pos-badge").textContent = item.p;
+  document.getElementById("fc-vi").textContent = item.vi;
+  document.getElementById("fc-note").textContent = item.note ? "📌 " + item.note : "";
+}
+function flipCard() { document.getElementById("fc-card").classList.toggle("flipped"); }
+function speakCurrentFC() { if (fcList[fcIdx]) speak(fcList[fcIdx].w); }
+function nextFC() { fcIdx = (fcIdx + 1) % fcList.length; renderFC(); }
+function prevFC() { fcIdx = (fcIdx - 1 + fcList.length) % fcList.length; renderFC(); }
+function markFC(known) {
+  const item = fcList[fcIdx];
+  if (known) {
+    fcKnown.add(item.id);
+    nextFC();
+  } else {
+    fcKnown.delete(item.id);
+    // Đẩy thẻ này xuống sau 3 thẻ để gặp lại
+    const cur = fcList.splice(fcIdx, 1)[0];
+    const insertAt = Math.min(fcIdx + 3, fcList.length);
+    fcList.splice(insertAt, 0, cur);
+    if (fcIdx >= fcList.length) fcIdx = 0;
+    renderFC();
+  }
+}
+
+/* ==================== TAB 4: SỔ TAY TỪ VỰNG ==================== */
+function renderDict() {
+  const unit = document.getElementById("dict-unit").value;
+  const kw = document.getElementById("dict-search").value.trim().toLowerCase();
+  const list = VOCAB.filter(v => {
+    if (unit !== "all" && v.u !== unit) return false;
+    if (kw && !(v.w.toLowerCase().includes(kw) || v.vi.toLowerCase().includes(kw) || (v.note || "").toLowerCase().includes(kw))) return false;
+    return true;
+  });
+  document.getElementById("dict-count").textContent = list.length;
+  document.getElementById("dict-body").innerHTML = list.map(v => `
+    <tr>
+      <td>
+        <b>${v.w}</b>
+        <button class="speak-btn" style="margin-left:6px;padding:2px 7px;font-size:0.75rem;" onclick="speak(\`${v.w.replace(/`/g,'')}\`)">🔊</button>
+      </td>
+      <td>${v.p}</td>
+      <td style="color:var(--muted);white-space:nowrap;">${v.ipa}</td>
+      <td>${v.vi}${v.note ? `<br><small style="color:var(--accent)">📌 ${v.note}</small>` : ""}</td>
+      <td><span class="pill pill-green">${UNIT_NAMES[v.u]}</span></td>
+    </tr>
+  `).join("");
+}
+
+/* ==================== PHÍM TẮT ==================== */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+  if (activeTab === "vocab" && !document.getElementById("vq-play").classList.contains("hidden")) {
+    if (["1","2","3","4"].includes(e.key)) selectVocabOpt(parseInt(e.key,10) - 1);
+    else if ((e.key === "Enter" || e.key === " ") && vqAnswered) { e.preventDefault(); nextVocabQ(); }
+  } else if (activeTab === "synant" && !document.getElementById("sq-play").classList.contains("hidden")) {
+    if (["1","2","3","4"].includes(e.key)) selectSynOpt(parseInt(e.key,10) - 1);
+    else if ((e.key === "Enter" || e.key === " ") && sqAnswered) { e.preventDefault(); nextSynQ(); }
+  } else if (activeTab === "flashcard") {
+    if (e.key === " ") { e.preventDefault(); flipCard(); }
+    else if (e.key === "ArrowRight") nextFC();
+    else if (e.key === "ArrowLeft") prevFC();
+  }
+});
+
+// Khởi tạo sẵn bảng
+renderDict();
+</script>
+</body>
+</html>
